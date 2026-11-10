@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Shared color-coded deadline list (Tkinter + SQLite).
 
-Click a deadline to open its hyperlink.
+Click a hyperlink to open it.
 Right-click a deadline to set its color:
   green  = OK
   blue   = not urgent
@@ -78,13 +78,13 @@ To share deadlines
    (a file share both computers can open).
 2. On each computer choose Database and enter that same path.
    You can also start the app with the path as an argument:
-     python todo_deadlines.py \\server\team\todos.db
+     python todo_deadlines.py \\\\server\\team\\todos.db
    or set the TODO_DB environment variable.
 3. Set Your name so the other person can see who changed a row.
 4. The list reloads every 5 seconds. Refresh or F5 reloads now.
 
 How to use the list
-- Click a hyperlink in the list to open it.
+- Click a hyperlink to open it in your web browser.
 - Right-click a deadline to change its color:
     Green  = OK
     Blue   = Not urgent
@@ -113,7 +113,7 @@ a server database later.
 DB_HELP = """Paste the full path to the SQLite file everyone will share.
 
 Examples:
-  \\server\team\todos.db
+  \\\\server\\team\\todos.db
   /Volumes/team/todos.db
   C:\\Users\\you\\todos.db
 
