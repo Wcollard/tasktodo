@@ -78,13 +78,13 @@ To share deadlines
    (a file share both computers can open).
 2. On each computer choose Database and enter that same path.
    You can also start the app with the path as an argument:
-     python todo_deadlines.py \\\\server\\team\\todos.db
+     python todo_deadlines.py \\server\team\todos.db
    or set the TODO_DB environment variable.
 3. Set Your name so the other person can see who changed a row.
 4. The list reloads every 5 seconds. Refresh or F5 reloads now.
 
 How to use the list
-- Click a deadline to open its hyperlink.
+- Click a hyperlink in the list to open it.
 - Right-click a deadline to change its color:
     Green  = OK
     Blue   = Not urgent
@@ -113,7 +113,7 @@ a server database later.
 DB_HELP = """Paste the full path to the SQLite file everyone will share.
 
 Examples:
-  \\\\server\\team\\todos.db
+  \\server\team\todos.db
   /Volumes/team/todos.db
   C:\\Users\\you\\todos.db
 
@@ -742,9 +742,9 @@ class TodoApp(tk.Tk):
         if region != "cell":
             return
         column = self.tree.identify_column(event.x)
-        if column != "#4":
+        if column != "#6":
             return
-        item_id = self.tree.focus()
+        item_id = self.tree.identify_row(event.y) if event else self.tree.focus()
         if not item_id:
             return
         task = self.conn.execute("SELECT hyperlink FROM todos WHERE id = ?", (int(item_id),)).fetchone()
